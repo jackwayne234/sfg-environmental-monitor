@@ -50,13 +50,16 @@ Industrial emissions marker.
 - Outside easy PPLN range (same challenge as nitrate)
 - Alternative crystal needed
 
-### Ammonia (NH3, ~8 um)
+### Ammonia (NH3, 3.00 um and ~8 um)
 
-Agricultural and industrial emissions.
+Agricultural and industrial emissions. NH3 has two usable absorption bands:
 
-- Absorption: ~8 um region
-- Outside PPLN range
-- Alternative crystal needed
+- **v3 N-H stretch at 3.00 um** — **within PPLN range**, QPM period ~21.1 um, SFG output at **785 nm** (Si QE >70%)
+- v2 bending mode at ~8 um — outside PPLN range, alternative crystal needed
+
+**The 3.00 um band is the practical choice** for the SFG platform. It reuses existing PPLN hardware with only a different QPM period. The NUTMEG project (Covesion + QLM Technology, Innovate UK funded, started Aug 2024) specifically targets NH3 using PPLN waveguide upconversion at this band.
+
+For mid-IR delivery of NH3 signal to the PPLN crystal: Thorlabs InF3 fluoroindate fiber (transparent 0.3-5.5 um) covers the 3.00 um band.
 
 ### Ozone (O3, 9.5 um)
 
@@ -70,8 +73,10 @@ Smog and air quality indicator.
 
 | Wavelength Range | PPLN Compatible? | Contaminants |
 |-----------------|-----------------|--------------|
-| 3.0-5.0 um | Yes | Petroleum, VOCs, some dissolved organics |
+| 3.0-5.0 um | Yes | Petroleum, VOCs, some dissolved organics, **NH3 (3.00 um)** |
 | 5.0-5.2 um | Edge of range | Marginal |
 | 5.2-10 um | No (need alt crystal) | Nitrate, phosphate, SO2, NH3, O3 |
 
-**Practical implication:** Start with 3.0-5.0 um targets (petroleum, VOCs) which reuse existing PPLN hardware. Longer-wavelength targets require separate R&D for alternative nonlinear crystals.
+**Practical implication:** Start with 3.0-5.0 um targets (petroleum, VOCs, **NH3**) which reuse existing PPLN hardware. Longer-wavelength targets require separate R&D for alternative nonlinear crystals.
+
+For SO2 (7.35 um) and NO2 (6.17 um) delivery to an alternative nonlinear crystal: IRflex IRF-Se series chalcogenide fiber (As2Se3, transparent 1.5-10 um, ~$500-2,000/connectorized cable) is the practical fiber option. See [sfg-energy-monitor/docs/build-plan.md](https://github.com/jackwayne234/sfg-energy-monitor/blob/main/docs/build-plan.md) for fiber supplier details.

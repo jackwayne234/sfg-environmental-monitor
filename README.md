@@ -23,12 +23,15 @@ Part of the **SFG Detection Platform** — same core hardware (PPLN chamber + pu
 | Phosphate | 8.2-9.5 um (P-O stretch) | Fertilizer runoff |
 
 ### Air
-| Pollutant | IR Absorption | Notes |
-|-----------|--------------|-------|
-| SO2 | 7.4 um | Industrial emissions |
-| NH3 | ~8 um | Agricultural, industrial |
-| VOCs | 3.0-3.6 um (C-H stretch) | Industrial emissions, same band as petroleum |
-| O3 | 9.5 um | Smog, air quality |
+| Pollutant | IR Absorption | SFG Output | PPLN Compatible? | Notes |
+|-----------|--------------|------------|-----------------|-------|
+| VOCs | 3.0-3.6 um (C-H stretch) | ~805-810 nm | Yes | Same band as petroleum |
+| **NH3** | **3.00 um (v3 N-H stretch)** | **785 nm** | **Yes** | QPM period ~21.1 um |
+| SO2 | 7.35 um (v3 asymmetric stretch) | 930 nm | No (need alt crystal) | Industrial emissions |
+| NO2 | 6.17 um (v3 asymmetric stretch) | 908 nm | No (need alt crystal) | Industrial emissions |
+| O3 | 9.5 um | ~955 nm | No (need alt crystal) | Smog, air quality |
+
+**Key correction:** NH3 has a usable absorption band at **3.00 um** (v3 N-H stretch), which is fully within the PPLN transparency window. The previously listed ~8 um band is the v2 bending mode. The 3.00 um band is what the NUTMEG project (Covesion + QLM, Innovate UK funded) targets for NH3 detection using PPLN waveguide upconversion.
 
 ## Key Challenge: Water Absorbs Mid-IR
 
@@ -54,9 +57,12 @@ Water itself absorbs strongly at 2.7, 3.0, and 6.1 um. You can't just shine IR t
 - [x] Target contaminant wavelengths mapped
 - [x] ATR approach identified for water monitoring
 - [x] Overlap with energy application identified (same PPLN crystals)
+- [x] NH3 reclassified as PPLN-compatible (3.00 um v3 band, not just 8 um v2 band)
+- [x] Prior art validated — NUTMEG project confirms NH3 via PPLN upconversion
 - [ ] Oil-in-water detection experiment
 - [ ] VOC air quality experiment
-- [ ] Nitrate detection feasibility study
+- [ ] NH3 detection (within PPLN range — shares hardware with energy application)
+- [ ] Nitrate detection feasibility study (requires alt crystal)
 
 ## Author
 
